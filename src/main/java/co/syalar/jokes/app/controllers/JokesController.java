@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * Created by jd.rodriguez
  */
-@Controller("/")
+@Controller
 public class JokesController {
 
     private JokeService jokeService;
@@ -19,7 +19,7 @@ public class JokesController {
         this.jokeService = jokeService;
     }
 
-    @RequestMapping(path = "/")
+    @RequestMapping(path = {"/",""})
     public String joke(Model model) {
         model.addAttribute("joke", jokeService.getJoke());
         return "chucknorris";
